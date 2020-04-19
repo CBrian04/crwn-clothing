@@ -1,11 +1,12 @@
 import UserActionTypes from "./user.types";
 
 const INITIAL_STATE = {
-    currentUser : null
+    currentUser: null
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
+        case UserActionTypes.SIGN_UP_SUCCESS:
         case UserActionTypes.SIGN_IN_SUCCESS:
             return {
                 ...state,
@@ -19,6 +20,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 error: null
             };
         case UserActionTypes.SIGN_IN_FAILURE:
+        case UserActionTypes.SIGN_UP_FAILURE:
         case UserActionTypes.SIGN_OUT_FAILURE:
             return {
                 ...state,
